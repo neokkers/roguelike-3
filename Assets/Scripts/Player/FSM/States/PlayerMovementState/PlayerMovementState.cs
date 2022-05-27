@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -46,6 +47,8 @@ public class PlayerMovementState : PlayerState
 
         stateListener.ListenForAbility();
 
+        player.Anim.SetFloat("InputXAbs", Math.Abs(player.InputHandler.NormInputX));
+        player.Anim.SetFloat("InputY", player.RB.velocity.y);
     }
 
     public override void PhysicsUpdate()

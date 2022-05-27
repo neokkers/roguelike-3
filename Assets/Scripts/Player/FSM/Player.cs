@@ -14,12 +14,12 @@ public class Player : MonoBehaviour
     public PlayerData playerData;
     public bool isGrounded;
     public PlayerMovementState MovementState { get; private set; }
+    public PlayerGroundState GroundState { get; private set; }
+    public PlayerAirState AirState { get; private set; }
     public PlayerAbilityState AbilityState { get; private set; }
-    public PlayerIdleState IdleState { get; private set; }
-    public PlayerRunState RunState { get; private set; }
+
     public PlayerJumpAbilityState JumpAbilityState { get; private set; }
-    public PlayerJumpState JumpState { get; private set; }
-    public PlayerFallState FallState { get; private set; }
+
 
     public AbilityStateListener StateListener { get; private set; }
 
@@ -53,13 +53,11 @@ public class Player : MonoBehaviour
 
 
         StateMachine = new PlayerStateMachine();
+        GroundState = new PlayerGroundState(this, StateMachine, playerData, "ground", StateListener);
+        AirState = new PlayerAirState(this, StateMachine, playerData, "air", StateListener);
         MovementState = new PlayerMovementState(this, StateMachine, playerData, "null", StateListener);
         AbilityState = new PlayerAbilityState(this, StateMachine, playerData, "null");
-        IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle", StateListener);
-        RunState = new PlayerRunState(this, StateMachine, playerData, "run", StateListener);
-        JumpAbilityState = new PlayerJumpAbilityState(this, StateMachine, playerData, "jump");
-        JumpState = new PlayerJumpState(this, StateMachine, playerData, "jump", StateListener);
-        FallState = new PlayerFallState(this, StateMachine, playerData, "fall", StateListener);
+        JumpAbilityState = new PlayerJumpAbilityState(this, StateMachine, playerData, "null");
         DashAbilityState = new PlayerDashAbilityState(this, StateMachine, playerData, "dash", StateListener);
 
         
@@ -72,7 +70,7 @@ public class Player : MonoBehaviour
         RB = GetComponent<Rigidbody2D>();
         FacingDirection = 1;
 
-        StateMachine.Initialize(IdleState);
+        StateMachine.Initialize(GroundState);
     }
 
     private void Update()

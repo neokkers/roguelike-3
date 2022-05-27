@@ -33,7 +33,7 @@ public class PlayerInputHandler : MonoBehaviour
             NormInputX = 0;
         }
 
-        if (Mathf.Abs(RawMovementInput.y) > 0.5f)
+        if (Mathf.Abs(RawMovementInput.y) > 0.1f)
         {
             NormInputY = (int)(RawMovementInput * Vector2.up).normalized.y;
         }

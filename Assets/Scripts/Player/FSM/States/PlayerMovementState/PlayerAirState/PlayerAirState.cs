@@ -29,7 +29,7 @@ public class PlayerAirState : PlayerMovementState
 
         if (player.isGrounded)
         {
-            stateMachine.ChangeState(player.IdleState);
+            stateMachine.ChangeState(player.GroundState);
         }
     }
 
