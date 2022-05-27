@@ -2,28 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbilityStateListener
+public class AbilityStateListener: MonoBehaviour
 {
     private Player player;
-    private PlayerData playerData;
     public bool canDash = true;
     public float dashStarted;
+    private int jumpsLeft;
     
-    public AbilityStateListener(Player player, PlayerData playerData)
+
+
+    private void Awake()
     {
-        this.player = player;
-        this.playerData = playerData;
+        this.player = GetComponent<Player>();
+        ResetJumps();
+
+    }
+
+    private void Update()
+    {
+        CheckIfCanDash();
+
     }
 
     public void ListenForAbility()
     {
-        if (player.InputHandler.JumpInput)
+        if (player.InputHandler.JumpInput && CanJump())
         {
-            player.StateMachine.ChangeState(player.JumpAbilityState);
+            Jump();
         }
         else if (player.InputHandler.DashInput && canDash)
         {
-            player.StateMachine.ChangeState(player.DashAbilityState);
+            StartDash();
         }
     }
 
@@ -31,7 +40,31 @@ public class AbilityStateListener
     {
         if (!canDash)
         {
-            if (Time.time - dashStarted > playerData.dashCooldown) canDash = true;
+            if (Time.time - dashStarted > player.playerData.dashCooldown) canDash = true;
         }
+    }
+    public bool CanJump()
+    {
+        return jumpsLeft > 1;
+    }
+
+    public void StartDash()
+    {
+        canDash = false;
+        dashStarted = Time.time;
+        player.StateMachine.ChangeState(player.DashAbilityState);
+    }
+
+    public void Jump()
+    {
+        
+        player.StateMachine.ChangeState(player.JumpAbilityState);
+        jumpsLeft--;
+
+    }
+
+    public void ResetJumps()
+    {
+        jumpsLeft = player.playerData.amountOfJumps;
     }
 }

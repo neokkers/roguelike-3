@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 
 
     [SerializeField]
-    private PlayerData playerData;
+    public PlayerData playerData;
     public bool isGrounded;
     public PlayerMovementState MovementState { get; private set; }
     public PlayerAbilityState AbilityState { get; private set; }
@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
 
-        StateListener = new AbilityStateListener(this, playerData);
+        StateListener = GetComponent<AbilityStateListener>();
 
 
         StateMachine = new PlayerStateMachine();
@@ -78,7 +78,6 @@ public class Player : MonoBehaviour
     private void Update()
     {
         StateMachine.CurrentState.LogicUpdate();
-        StateListener.CheckIfCanDash();
     }
 
     private void FixedUpdate()

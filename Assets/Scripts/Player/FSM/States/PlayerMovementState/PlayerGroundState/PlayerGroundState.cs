@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerGroundState : PlayerMovementState
 {
+    private AbilityStateListener stateListener;
     public PlayerGroundState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName, AbilityStateListener stateListener) : base(player, stateMachine, playerData, animBoolName, stateListener)
     {
+        this.stateListener = stateListener;
     }
 
     public override void DoChecks()
@@ -16,6 +18,9 @@ public class PlayerGroundState : PlayerMovementState
     public override void Enter()
     {
         base.Enter();
+        stateListener.ResetJumps();
+
+
     }
 
     public override void Exit()

@@ -378,6 +378,7 @@ GameObject:
   - component: {fileID: 819803912}
   - component: {fileID: 819803911}
   - component: {fileID: 819803915}
+  - component: {fileID: 819803916}
   m_Layer: 0
   m_Name: PlayerKnight
   m_TagString: Untagged
@@ -641,6 +642,21 @@ MonoBehaviour:
   playerData: {fileID: 11400000, guid: 3f9b1f89baa46d24eb53ed28a826f122, type: 2}
   isGrounded: 0
   groundCheck: {fileID: 321597948}
+--- !u!114 &819803916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819803906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e0547c175f23d14ba70f88dfba3866c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canDash: 1
+  dashStarted: 0
+  playerData: {fileID: 11400000, guid: 3f9b1f89baa46d24eb53ed28a826f122, type: 2}
 --- !u!1 &934994528
 GameObject:
   m_ObjectHideFlags: 0

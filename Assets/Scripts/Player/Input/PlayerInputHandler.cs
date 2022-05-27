@@ -15,6 +15,9 @@ public class PlayerInputHandler : MonoBehaviour
     public bool DashInput { get; private set; } = false;
     public bool AttackInput { get; private set; } = false;
 
+    private float jumpInputThreshold = 0.1f;
+    private float jumpInputStart;
+
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         RawMovementInput = context.ReadValue<Vector2>();
@@ -44,7 +47,13 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.started)
         {
             JumpInput = true;
+            jumpInputStart = Time.time;
         }
+    }
+
+    private void Update()
+    {
+        if (Time.time > jumpInputStart + jumpInputThreshold) JumpInput = false;
     }
 
     public void OnDashInput(InputAction.CallbackContext context)

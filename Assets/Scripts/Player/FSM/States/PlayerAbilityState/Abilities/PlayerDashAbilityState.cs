@@ -14,9 +14,8 @@ public class PlayerDashAbilityState : PlayerAbilityState
     {
         base.Enter();
         player.InputHandler.StopDashing();
-        manager.canDash = false;
-        manager.dashStarted = Time.time;
-        
+
+
     }
 
     public override void LogicUpdate()
