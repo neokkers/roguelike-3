@@ -7,6 +7,7 @@ public class AbilityStateListener: MonoBehaviour
     private Player player;
     public bool canDash = true;
     public float dashStarted;
+    
     private int jumpsLeft;
     
 
