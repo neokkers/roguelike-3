@@ -25,6 +25,8 @@ public class AbilityStateListener: MonoBehaviour
     private void Update()
     {
         CheckIfCanDash();
+        ListenForAbility();
+        if (player.isGrounded && player.RB.velocity.y <= 0.1f) ResetJumps();
 
     }
 

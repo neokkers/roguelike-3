@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerJumpAbilityState : PlayerAbilityState
 {
-    public PlayerJumpAbilityState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
+    public PlayerJumpAbilityState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName, AbilityStateListener stateListener) : base(player, stateMachine, playerData, animBoolName, stateListener)
     {
     }
 

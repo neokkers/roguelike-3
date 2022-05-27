@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerDashAbilityState : PlayerAbilityState
 {
     private AbilityStateListener manager;
-    public PlayerDashAbilityState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName, AbilityStateListener manager) : base(player, stateMachine, playerData, animBoolName)
+    public PlayerDashAbilityState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName, AbilityStateListener manager) : base(player, stateMachine, playerData, animBoolName, manager)
     {
         this.manager = manager;
     }

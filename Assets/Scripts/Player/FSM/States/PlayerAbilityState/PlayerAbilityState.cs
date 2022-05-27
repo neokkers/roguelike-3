@@ -5,9 +5,13 @@ using UnityEngine;
 public class PlayerAbilityState : PlayerState
 {
     protected bool isAbilityDone;
+    private AbilityStateListener stateListener;
 
-    public PlayerAbilityState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
+    
+
+    public PlayerAbilityState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName, AbilityStateListener stateListener) : base(player, stateMachine, playerData, animBoolName)
     {
+        this.stateListener = stateListener;
     }
 
     public override void DoChecks()
@@ -30,6 +34,7 @@ public class PlayerAbilityState : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+
 
         if (isAbilityDone)
         {

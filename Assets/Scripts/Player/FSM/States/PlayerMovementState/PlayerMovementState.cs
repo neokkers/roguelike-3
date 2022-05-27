@@ -45,7 +45,7 @@ public class PlayerMovementState : PlayerState
 
         player.SetVelocityX(player.InputHandler.NormInputX * playerData.movementVelocity);
 
-        stateListener.ListenForAbility();
+        //stateListener.ListenForAbility();
 
         player.Anim.SetFloat("InputXAbs", Math.Abs(player.InputHandler.NormInputX));
         player.Anim.SetFloat("InputY", player.RB.velocity.y);

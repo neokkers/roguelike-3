@@ -56,8 +56,8 @@ public class Player : MonoBehaviour
         GroundState = new PlayerGroundState(this, StateMachine, playerData, "ground", StateListener);
         AirState = new PlayerAirState(this, StateMachine, playerData, "air", StateListener);
         MovementState = new PlayerMovementState(this, StateMachine, playerData, "null", StateListener);
-        AbilityState = new PlayerAbilityState(this, StateMachine, playerData, "null");
-        JumpAbilityState = new PlayerJumpAbilityState(this, StateMachine, playerData, "null");
+        AbilityState = new PlayerAbilityState(this, StateMachine, playerData, "null", StateListener);
+        JumpAbilityState = new PlayerJumpAbilityState(this, StateMachine, playerData, "null", StateListener);
         DashAbilityState = new PlayerDashAbilityState(this, StateMachine, playerData, "dash", StateListener);
 
         
