@@ -18,9 +18,6 @@ public class PlayerGroundState : PlayerMovementState
     public override void Enter()
     {
         base.Enter();
-        stateListener.ResetJumps();
-
-
     }
 
     public override void Exit()
@@ -32,6 +29,7 @@ public class PlayerGroundState : PlayerMovementState
     {
         base.LogicUpdate();
 
+        if (player.isGrounded && player.RB.velocity.y <= 0f) stateListener.ResetJumps();
         if (!player.isGrounded)
         {
             stateMachine.ChangeState(player.AirState);

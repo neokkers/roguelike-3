@@ -7,12 +7,15 @@ public class AbilityStateListener: MonoBehaviour
     private Player player;
     public bool canDash = true;
     public float dashStarted;
-    
+
+    [SerializeField]
     private int jumpsLeft;
     
 
 
-    private void Awake()
+    
+
+    private void Start()
     {
         this.player = GetComponent<Player>();
         ResetJumps();
@@ -46,7 +49,7 @@ public class AbilityStateListener: MonoBehaviour
     }
     public bool CanJump()
     {
-        return jumpsLeft > 1;
+        return jumpsLeft > 0;
     }
 
     public void StartDash()
