@@ -14,6 +14,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     public bool DashInput { get; private set; } = false;
     public bool AttackInput { get; private set; } = false;
+    public bool AttackBowInput { get; private set; } = false;
 
     private float jumpInputThreshold = 0.1f;
     private float dashInputThreshold = 0.1f;
@@ -76,8 +77,22 @@ public class PlayerInputHandler : MonoBehaviour
 
         }
     }
+    public void OnAttackBowInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            AttackBowInput = true;
+
+        }
+        if (context.canceled)
+        {
+            AttackBowInput = false;
+
+        }
+    }
 
     public void StopJumping() => JumpInput = false;
     public void StopDashing() => DashInput = false;
     public void StopAttacking() => AttackInput = false;
+    public void StopAttackingBow() => AttackBowInput = false;
 }

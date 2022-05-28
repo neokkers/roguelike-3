@@ -22,7 +22,12 @@ public class PlayerDashAbilityState : PlayerAbilityState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (Time.time - startTime > playerData.dashTime && !player.InputHandler.AttackInput)
+        if (player.InputHandler.AttackBowInput)
+        {
+            player.AttackBowAbility.bowFromDash = true;
+            player.StateMachine.ChangeState(player.AttackBowAbility);
+        }
+        else if (Time.time - startTime > playerData.dashTime && !player.InputHandler.AttackInput)
         {
             isAbilityDone = true;
             manager.isDashing = false;

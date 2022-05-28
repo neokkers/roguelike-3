@@ -26,6 +26,7 @@ public class PlayerAirState : PlayerMovementState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        
 
         if (player.isGrounded)
         {

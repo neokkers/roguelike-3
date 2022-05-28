@@ -7,6 +7,7 @@ public class PlayerData : ScriptableObject
 {
     [Header("Move State")]
     public float movementVelocity = 10f;
+    public float bowMovementVelocity = 3f;
 
     [Header("Jump State")]
     public float jumpVelocity = 15f;
@@ -24,4 +25,9 @@ public class PlayerData : ScriptableObject
     [Header("Attack State")]
     public float attack2Time = 3f;
     public float attack2Velocity = 5f;
+    public float bowCritTime = 0.1f;
+    public GameObject arrow;
+    public GameObject arrowInverse;
+    public GameObject critArrow;
+    public GameObject critArrowInverse;
 }

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: playerData
   m_EditorClassIdentifier: 
   movementVelocity: 10
+  bowMovementVelocity: 3
   jumpVelocity: 15
   amountOfJumps: 2
   dashVelocity: 20
@@ -24,3 +25,8 @@ MonoBehaviour:
     m_Bits: 64
   attack2Time: 0.2
   attack2Velocity: 5
+  bowCritTime: 0.1
+  arrow: {fileID: 3369600670798616861, guid: 597f5f1f1204de54eba34a64aa608229, type: 3}
+  arrowInverse: {fileID: 3369600670798616861, guid: da50ab7cc79aa3b4395d68ed441113a9, type: 3}
+  critArrow: {fileID: 3369600670798616861, guid: 59faee379b821b54797e9911d171a99b, type: 3}
+  critArrowInverse: {fileID: 3369600670798616861, guid: 9b9ec461e2ff9fc4cb81bb61ad7192fd, type: 3}

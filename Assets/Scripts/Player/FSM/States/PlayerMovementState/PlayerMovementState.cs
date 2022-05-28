@@ -40,23 +40,34 @@ public class PlayerMovementState : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        UpdateMovement(playerData.movementVelocity);
 
         if (player.InputHandler.AttackInput)
         {
             player.StateMachine.ChangeState(player.Attack1Ability);
         }
+        else if (player.InputHandler.AttackBowInput)
+        {
+            player.StateMachine.ChangeState(player.AttackBowAbility);
+        }
 
 
+        
+
+        
+
+        
+    }
+
+    public void UpdateMovement(float movementVelocity)
+    {
         player.CheckIfShouldFlip();
-
-        player.SetVelocityX(player.InputHandler.NormInputX * playerData.movementVelocity);
+        player.SetVelocityX(player.InputHandler.NormInputX * movementVelocity);
 
         //stateListener.ListenForAbility();
 
         player.Anim.SetFloat("InputXAbs", Math.Abs(player.InputHandler.NormInputX));
         player.Anim.SetFloat("InputY", player.RB.velocity.y);
-
-        
     }
 
     public override void PhysicsUpdate()

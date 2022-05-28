@@ -9,6 +9,7 @@ public class AbilityStateListener: MonoBehaviour
     public float dashStarted;
     public bool isAttacking2 = false;
     public bool isDashing = false;
+    public bool isAttackingBow = false;
 
     [SerializeField]
     private int jumpsLeft;
@@ -44,6 +45,7 @@ public class AbilityStateListener: MonoBehaviour
             StartDash();
         }
         
+
     }
 
     public void CheckIfCanDash()
@@ -76,5 +78,19 @@ public class AbilityStateListener: MonoBehaviour
     public void ResetJumps()
     {
         jumpsLeft = player.playerData.amountOfJumps;
+    }
+    public void Fire()
+    {
+        GameObject arrow = player.playerData.arrow;
+        
+        if (player.FacingDirection == -1) arrow = player.playerData.arrowInverse;
+        
+        Instantiate(arrow, player.transform.position, Quaternion.identity);
+    }
+    public void CritFire()
+    {
+        GameObject critArrow = player.playerData.critArrow;
+        if (player.FacingDirection == -1) critArrow = player.playerData.critArrowInverse;
+        Instantiate(critArrow, player.transform.position, Quaternion.identity);
     }
 }

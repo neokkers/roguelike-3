@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
 
     public PlayerAttack1Ability Attack1Ability { get; private set; }
     public PlayerAttack2Ability Attack2Ability { get; private set; }
+    public PlayerAttackBowAbility AttackBowAbility { get; private set; }
     public PlayerJumpAbilityState JumpAbilityState { get; private set; }
 
 
@@ -64,6 +65,7 @@ public class Player : MonoBehaviour
         DashAbilityState = new PlayerDashAbilityState(this, StateMachine, playerData, "dash", StateListener);
         Attack1Ability = new PlayerAttack1Ability(this, StateMachine, playerData, "attack1", StateListener);
         Attack2Ability = new PlayerAttack2Ability(this, StateMachine, playerData, "attack3", StateListener);
+        AttackBowAbility = new PlayerAttackBowAbility(this, StateMachine, playerData, "attackBow", StateListener);
 
 
     }
@@ -157,5 +159,13 @@ public class Player : MonoBehaviour
     public void FinishAttack2()
     {
         Attack2Ability.StopAttack2();
+    }
+    public void FinishAttackBow()
+    {
+        AttackBowAbility.StopAttackBow();
+    }
+    public void StartCritTimeBow()
+    {
+        AttackBowAbility.OnCritEvent();
     }
 }

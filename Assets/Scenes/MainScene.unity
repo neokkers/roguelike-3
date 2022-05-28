@@ -2364,7 +2364,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2069416, y: 1}
+    m_SensorSize: {x: 2.20307, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2533,6 +2533,7 @@ MonoBehaviour:
   dashStarted: 0
   isAttacking2: 0
   isDashing: 0
+  isAttackingBow: 0
   jumpsLeft: 0
 --- !u!114 &975399001
 MonoBehaviour:
@@ -2650,6 +2651,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 80f25036-d00c-41e9-b8a9-2f813cc8de22
     m_ActionName: Gameplay/Dash[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: eb782352-265b-42c6-a40d-a07ae6b289c5
+    m_ActionName: Gameplay/AttackBow[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -2918,6 +2923,7 @@ MonoBehaviour:
   dashStarted: 0
   isAttacking2: 0
   isDashing: 0
+  isAttackingBow: 0
   jumpsLeft: 0
 --- !u!114 &1567730863
 MonoBehaviour:
@@ -3035,6 +3041,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 80f25036-d00c-41e9-b8a9-2f813cc8de22
     m_ActionName: Gameplay/Dash[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1567730864}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
+        m_MethodName: OnAttackBowInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: eb782352-265b-42c6-a40d-a07ae6b289c5
+    m_ActionName: Gameplay/AttackBow[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
