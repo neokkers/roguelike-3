@@ -14,6 +14,7 @@ public class PlayerDashAbilityState : PlayerAbilityState
     {
         base.Enter();
         player.InputHandler.StopDashing();
+        manager.isDashing = true;
 
 
     }
@@ -21,10 +22,12 @@ public class PlayerDashAbilityState : PlayerAbilityState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (Time.time - startTime > playerData.dashTime)
+        if (Time.time - startTime > playerData.dashTime && !player.InputHandler.AttackInput)
         {
             isAbilityDone = true;
+            manager.isDashing = false;
         }
+        
     }
 
     public override void PhysicsUpdate()

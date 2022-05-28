@@ -35,8 +35,13 @@ public class PlayerAbilityState : PlayerState
     {
         base.LogicUpdate();
 
+        if (player.InputHandler.AttackInput && stateListener.isDashing)
+        {
+            player.InputHandler.StopAttacking();
+            player.StateMachine.ChangeState(player.Attack2Ability);
 
-        if (isAbilityDone)
+        }
+        else if (isAbilityDone)
         {
             if (player.isGrounded)
             {
@@ -44,7 +49,7 @@ public class PlayerAbilityState : PlayerState
             }
             else
             {
-                stateMachine.ChangeState(player.AirState);
+               stateMachine.ChangeState(player.AirState);
             }
         }
     }

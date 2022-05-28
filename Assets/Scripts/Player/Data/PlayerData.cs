@@ -20,4 +20,8 @@ public class PlayerData : ScriptableObject
     [Header("Check Variables")]
     public float groundCheckRadius = 0.3f;
     public LayerMask whatIsGround;
+
+    [Header("Attack State")]
+    public float attack2Time = 3f;
+    public float attack2Velocity = 5f;
 }

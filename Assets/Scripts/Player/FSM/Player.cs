@@ -18,7 +18,10 @@ public class Player : MonoBehaviour
     public PlayerAirState AirState { get; private set; }
     public PlayerAbilityState AbilityState { get; private set; }
 
+    public PlayerAttack1Ability Attack1Ability { get; private set; }
+    public PlayerAttack2Ability Attack2Ability { get; private set; }
     public PlayerJumpAbilityState JumpAbilityState { get; private set; }
+
 
 
     public AbilityStateListener StateListener { get; private set; }
@@ -59,8 +62,10 @@ public class Player : MonoBehaviour
         AbilityState = new PlayerAbilityState(this, StateMachine, playerData, "null", StateListener);
         JumpAbilityState = new PlayerJumpAbilityState(this, StateMachine, playerData, "null", StateListener);
         DashAbilityState = new PlayerDashAbilityState(this, StateMachine, playerData, "dash", StateListener);
+        Attack1Ability = new PlayerAttack1Ability(this, StateMachine, playerData, "attack1", StateListener);
+        Attack2Ability = new PlayerAttack2Ability(this, StateMachine, playerData, "attack3", StateListener);
 
-        
+
     }
 
     private void Start()
@@ -143,5 +148,14 @@ public class Player : MonoBehaviour
         // Draw a yellow sphere at the transform's position
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(groundCheck.transform.position, playerData.groundCheckRadius);
+    }
+
+    public void FinishAttack1()
+    {
+        Attack1Ability.StopAttack1();
+    }
+    public void FinishAttack2()
+    {
+        Attack2Ability.StopAttack2();
     }
 }

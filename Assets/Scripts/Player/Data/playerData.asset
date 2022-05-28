@@ -18,7 +18,9 @@ MonoBehaviour:
   dashVelocity: 20
   dashTime: 0.2
   dashCooldown: 1
-  groundCheckRadius: 0.3
+  groundCheckRadius: 0.1
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  attack2Time: 0.2
+  attack2Velocity: 5

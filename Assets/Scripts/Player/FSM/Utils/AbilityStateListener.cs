@@ -7,6 +7,8 @@ public class AbilityStateListener: MonoBehaviour
     private Player player;
     public bool canDash = true;
     public float dashStarted;
+    public bool isAttacking2 = false;
+    public bool isDashing = false;
 
     [SerializeField]
     private int jumpsLeft;
@@ -32,6 +34,7 @@ public class AbilityStateListener: MonoBehaviour
 
     public void ListenForAbility()
     {
+        
         if (player.InputHandler.JumpInput && CanJump())
         {
             Jump();
@@ -40,6 +43,7 @@ public class AbilityStateListener: MonoBehaviour
         {
             StartDash();
         }
+        
     }
 
     public void CheckIfCanDash()

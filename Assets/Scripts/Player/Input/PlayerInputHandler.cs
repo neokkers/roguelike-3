@@ -75,11 +75,6 @@ public class PlayerInputHandler : MonoBehaviour
             AttackInput = true;
 
         }
-        if (context.canceled)
-        {
-            AttackInput = false;
-
-        }
     }
 
     public void StopJumping() => JumpInput = false;

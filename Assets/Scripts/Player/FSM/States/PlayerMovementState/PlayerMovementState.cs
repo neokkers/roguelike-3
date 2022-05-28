@@ -41,6 +41,12 @@ public class PlayerMovementState : PlayerState
     {
         base.LogicUpdate();
 
+        if (player.InputHandler.AttackInput)
+        {
+            player.StateMachine.ChangeState(player.Attack1Ability);
+        }
+
+
         player.CheckIfShouldFlip();
 
         player.SetVelocityX(player.InputHandler.NormInputX * playerData.movementVelocity);
@@ -49,6 +55,8 @@ public class PlayerMovementState : PlayerState
 
         player.Anim.SetFloat("InputXAbs", Math.Abs(player.InputHandler.NormInputX));
         player.Anim.SetFloat("InputY", player.RB.velocity.y);
+
+        
     }
 
     public override void PhysicsUpdate()
