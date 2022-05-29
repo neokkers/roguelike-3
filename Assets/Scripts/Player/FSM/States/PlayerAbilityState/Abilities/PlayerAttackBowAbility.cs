@@ -26,13 +26,17 @@ public class PlayerAttackBowAbility : PlayerAbilityState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        
-        player.MovementState.UpdateMovement(playerData.bowMovementVelocity);
 
         if (!player.InputHandler.AttackBowInput && Time.time - lastShotTime > 0.4f)
         {
             StopAttackBow();
         }
+
+        player.MovementState.UpdateMovement(playerData.bowMovementVelocity);
+
+
+
+        
 
 
     }
